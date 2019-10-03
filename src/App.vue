@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Header />
+    <AddTodo />
     <!-- Ini namanya props -->
     <!-- Cara untuk pass data ke child component -->
     <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo" />
@@ -9,13 +10,15 @@
 
 <script>
 import Todos from "./components/Todos";
+import AddTodo from "./components/AddTodo";
 import Header from "./components/layouts/Header";
 
 export default {
   name: "app",
   components: {
     Todos,
-    Header
+    Header,
+    AddTodo
   },
   data() {
     return {
@@ -55,5 +58,17 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  background: #555;
+  color: #fff;
+  padding: 7px 20px;
+  cursor: pointer;
+}
+.btn:hover {
+  background: #666;
 }
 </style>
