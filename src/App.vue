@@ -1,16 +1,21 @@
 <template>
   <div id="app">
-    <Todos />
+    <Header />
+    <!-- Ini namanya props -->
+    <!-- Cara untuk pass data ke child component -->
+    <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo" />
   </div>
 </template>
 
 <script>
 import Todos from "./components/Todos";
+import Header from "./components/layouts/Header";
 
 export default {
   name: "app",
   components: {
-    Todos
+    Todos,
+    Header
   },
   data() {
     return {
@@ -23,7 +28,7 @@ export default {
         {
           id: 2,
           title: "Todo two",
-          completed: true
+          completed: false
         },
         {
           id: 3,
@@ -32,6 +37,12 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    deleteTodo(id) {
+      // hanya mereturn todo id yang sama ketika di tekan
+      this.todos = this.todos.filter(todo => todo.id != id);
+    }
   }
 };
 </script>
