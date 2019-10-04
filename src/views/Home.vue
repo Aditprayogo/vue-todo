@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <Header />
     <!-- menangkap dari add todo -->
     <AddTodo v-on:add-todo="addTodo" />
     <!-- Ini namanya props -->
@@ -12,14 +11,12 @@
 <script>
 import Todos from "../components/Todos";
 import AddTodo from "../components/AddTodo";
-import Header from "../components/layouts/Header";
 import axios from "axios";
 
 export default {
   name: "Home",
   components: {
     Todos,
-    Header,
     AddTodo
   },
   data() {
@@ -60,14 +57,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 
 .btn {
